@@ -12,26 +12,26 @@ public class TheBBC {
 
         try {
             // Navigate to bbc
-            driver.get("http://bbc.co.uk");
+            driver.get("https://bbc.co.uk");
             // Click Bottom iPlayer link!
-            driver.findElement(By.cssSelector("#orb-aside .orb-nav-iplayer a")).click();
+            driver.findElement(By.cssSelector("TODO")).click();
 
             // Navigate to bbc
-            driver.get("http://bbc.co.uk");
+            driver.get("https://bbc.co.uk");
             // Get text from top sports story
             String topStoryText = driver.findElement(
                     By.cssSelector(
-                            "section.hp-module--duo div.hp-top-stories--sport-palette div:first-child .top-story__content h3"))
+                            "TODO"))
                     .getText();
 
             // Print that text out!
             System.out.println(topStoryText);
         } catch (Exception e) {
             System.err.println("Oh noes, something went wrong!");
+        } finally {
+            // Close the browser
+            driver.quit();
         }
-
-        // Close the browser
-        driver.quit();
     }
 
 }

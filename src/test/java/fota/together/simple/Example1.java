@@ -1,4 +1,4 @@
-package fota.together;
+package fota.together.simple;
 
 import static org.testng.Assert.assertTrue;
 

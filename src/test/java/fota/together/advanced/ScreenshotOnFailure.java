@@ -1,17 +1,6 @@
-package fota.together;
+package fota.together.advanced;
 
-import static org.testng.Assert.assertTrue;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
@@ -21,7 +10,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ScreenshotExample {
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.assertTrue;
+
+public class ScreenshotOnFailure {
 
     private WebDriver driver;
     private Wait<WebDriver> wait;
@@ -53,14 +50,19 @@ public class ScreenshotExample {
     @AfterMethod
     public void teardown(ITestResult testResult) {
         if (!testResult.isSuccess()) {
-            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            try {
-                FileUtils.copyFile(scrFile, new File("D:\\TMP\\screenshot.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            takeAndSaveScreenshot();
         }
         // Close the browser
         driver.quit();
+    }
+
+    private void takeAndSaveScreenshot() {
+        Path path = Paths.get(String.format("screenshot-%d.png", System.currentTimeMillis()));
+        byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        try {
+            Files.write(path, screenshotBytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

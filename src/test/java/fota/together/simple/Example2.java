@@ -1,7 +1,8 @@
-package fota.together;
+package fota.together.simple;
 
 import static org.testng.Assert.assertEquals;
 
+import fota.together.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -12,15 +13,15 @@ public class Example2 extends BaseTest {
         // Navigate to bbc
         driver.get("http://bbc.co.uk");
         // Click Bottom iPlayer link!
-        driver.findElement(By.cssSelector("#orb-aside .orb-nav-iplayer a")).click();
+        driver.findElement(By.cssSelector("TODO")).click();
 
         // Navigate to bbc
         driver.get("http://bbc.co.uk");
         // Get text from top sports story
-        String topStoryText = driver.findElement(By.cssSelector("section.hp-module--duo div.hp-top-stories--sport-palette div:first-child .top-story__content h3")).getText();
+        String topStoryText = driver.findElement(By.cssSelector("TODO")).getText();
 
         // Assert the top story text is what we expected
-        assertEquals(topStoryText, "LiveSportsday - rolling football news");
+        assertEquals(topStoryText, "TODO");
     }
 
 }

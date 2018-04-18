@@ -1,4 +1,4 @@
-package fota.together;
+package fota.together.advanced;
 
 import java.util.concurrent.TimeUnit;
 
