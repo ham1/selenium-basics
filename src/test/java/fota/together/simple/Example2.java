@@ -12,11 +12,6 @@ public class Example2 extends BaseTest {
     public void testBBCTopSportsStoryName() {
         // Navigate to bbc
         driver.get("http://bbc.co.uk");
-        // Click Bottom iPlayer link!
-        driver.findElement(By.cssSelector("TODO")).click();
-
-        // Navigate to bbc
-        driver.get("http://bbc.co.uk");
         // Get text from top sports story
         String topStoryText = driver.findElement(By.cssSelector("TODO")).getText();
 

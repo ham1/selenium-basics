@@ -12,12 +12,7 @@ public class TheBBC {
 
         try {
             // Navigate to bbc
-            driver.get("https://bbc.co.uk");
-            // Click Bottom iPlayer link!
-            driver.findElement(By.cssSelector("TODO")).click();
-
-            // Navigate to bbc
-            driver.get("https://bbc.co.uk");
+            driver.get("https://bbc.com");
             // Get text from top sports story
             String topStoryText = driver.findElement(
                     By.cssSelector(
@@ -28,6 +23,7 @@ public class TheBBC {
             System.out.println(topStoryText);
         } catch (Exception e) {
             System.err.println("Oh noes, something went wrong!");
+            e.printStackTrace();
         } finally {
             // Close the browser
             driver.quit();
