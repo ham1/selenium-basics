@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SynchronisationExample {
 
+    // TODO: 1. Refactor this class and method into a test which uses BaseTest
     public static void main(String[] args) {
         // Open Firefox
         WebDriver driver = new FirefoxDriver();
@@ -31,5 +32,8 @@ public class SynchronisationExample {
         // Close the browser
         driver.quit();
     }
+    
+    // TODO 2: Create a new test which uses the waiting on the Dynamic Loading (Example 2) page
+    // it should assert that the text which appears is Hello World!
 
 }
